@@ -1,13 +1,11 @@
 import TodoDetail from "@/components/TodoDetail";
 import { prisma } from "@/lib/prisma";
 
-interface SingleTodoPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const SingleTodoPage = async ({ params }: SingleTodoPageProps) => {
+const SingleTodoPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const slug = (await params).slug;
 
   const todo = await prisma.todo.findUnique({
