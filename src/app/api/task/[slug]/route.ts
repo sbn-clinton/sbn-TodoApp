@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import {  NextResponse } from "next/server";
 
 
-export const POST = async (req: Request, context: { params: { slug: string } } ) => {
+export const PATCH = async (req: Request, context: { params: { slug: string } } ) => {
 
   const session = await auth();
   const email = session?.user?.email;

@@ -55,7 +55,7 @@ const EditSheet = ({
     }
 
     try {
-      const response = await axios.post(`/api/task/${slug}`, data);
+      const response = await axios.patch(`/api/task/${slug}`, data);
       console.log("Task updated successfully, status:", response.status);
       setIsOpen(false);
       reset();
