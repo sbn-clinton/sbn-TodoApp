@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import {  NextResponse } from "next/server";
 
 
-export const PATCH = async (req: Request, context: { params: { slug: string } } ) => {
+export const PATCH = async (req: Request, context: { params: Promise<{ slug: string }> } ) => {
 
   const session = await auth();
   const email = session?.user?.email;
@@ -51,7 +51,7 @@ export const PATCH = async (req: Request, context: { params: { slug: string } } 
 }
 
 
-export const DELETE = async (req: Request, context: { params: { slug: string } }) => {
+export const DELETE = async (req: Request, context: { params:  Promise<{ slug: string }> }) => {
   const session = await auth();
   const email = session?.user?.email;
   if (!email) {
@@ -74,7 +74,7 @@ export const DELETE = async (req: Request, context: { params: { slug: string } }
 }
 
 
-export const PUT = async (req: Request, context: { params: { slug: string } } ) => {
+export const PUT = async (req: Request, context: { params: Promise<{ slug: string }> } ) => {
 
   const session = await auth();
   const email = session?.user?.email;
